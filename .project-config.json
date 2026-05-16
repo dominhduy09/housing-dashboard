@@ -1,15 +1,22 @@
 {
   "build_command": "pnpm run build",
-  "capabilities": [],
+  "capabilities": [
+    "db",
+    "server",
+    "user"
+  ],
   "dev_command": "pnpm run dev",
-  "env_vars": {},
+  "env_vars": {
+    "DATABASE_URL": "mysql://3QRLbjpuJKK3XJ4.975ad2ac2919:f5IqYDlII241JZ3eQ8kl@gateway06.us-east-1.prod.aws.tidbcloud.com:4000/ajya84z9dmED5NqWmxrMcj?ssl={\"rejectUnauthorized\":true}",
+    "DRIZZLE_DATABASE_URL": "mysql://3QRLbjpuJKK3XJ4.975ad2ac2919:f5IqYDlII241JZ3eQ8kl@gateway06.us-east-1.prod.aws.tidbcloud.com:4000/ajya84z9dmED5NqWmxrMcj?ssl={\"rejectUnauthorized\":true}"
+  },
   "experiments": null,
   "git_remote": {
     "repo_url": "s3://vida-prod-gitrepo/webdev-git/96626251/ajya84z9dmED5NqWmxrMcj",
-    "access_key_id": "ASIAZV3A2ECZPQEMZH2O",
-    "secret_access_key": "dF/+Ad5KfOIVrKyb+thws1+9aNeS4Xg7O7WrxpBT",
-    "session_token": "IQoJb3JpZ2luX2VjEMz//////////wEaCXVzLWVhc3QtMSJGMEQCIEu0dVDU4LbapqtV1qatnqxDN5Hm9loFQDDWpEr70J/nAiBWKWYD4mC+4MxuxdkwFmeIZDcVML3UWne18A72BI0e/CrrAwiV//////////8BEAQaDDY2NTM4NjA5ODg2NiIMNi+aZVgLbpzRXPBfKr8DFMfONsWlYL5kU04z4k1J2RPJzm7sYs0MsUHuZAKnZXQUN4D09QthQf/MBztYYx2wAUVLoHVuTtGIm+L+3ricUivQ9fl62GdHfFhXzz3flbGtqP3XZN5qmVRq6jZYcl8ZfAD2hLEPtiz3u8hkymtnCZrl6+eW87rKMvuDsCIJGGjGkq70QRAisE31tC2sXQ4ZyFibMpXcnbROqhJ3/QeqaTfIYHBjQA4FQT384Iy+mQeeQqRNoIo1jZ8Y/FbbOPpP11i3XgOnMSABGzpK9VSK1EtxC1GZ2IzZbw+6COwGTsRWc1o+k+XPn8h34W0rHD1wzD7urcp/g/JDGwIkrHLehcfwsuUyDeb/3w/Ng0OSi4QAw0jIsiONppMhSOalCfZQnT1aDp7jPKSnx+Jpg4M7lW6rUM0sR1bfYopU928Gd2Khg9JGOqFXFKM05U6sKGfu5Fw0cNdPv+8cZArAafpOIZYmE6Ws2NMSg3qW32ARM12GUBJUT10ZGdK1rzcd0B9ME3F09ALbP6imH9PZiSmxkAfZOniNyypXRB1dZdFSQNjohP5Md/zTRpBtpYz7jsAeJqDb8Ek54U+sGYBSuukOMKCPo9AGOp4BB2JjG0wMmwezj5k6Zj7SsF/+3JE1m3m9kgkWaat+83dQosiT3v6ihE6XhKfgJvf510u+XlqBzslxeAvx1KhV0MA5GHw/X8ARR89NGMhC8RVD6sshQ8al4pyGGwVe7oEZ7uvBUIn/CIBS3a10QUAgpnTMqVll6Yt30DM6EAnXGIaPHvR489M16qE+DXCWgENlQG83daaMdOoWMTW4bik=",
-    "expiration": "2026-05-17T07:38:08.000Z"
+    "access_key_id": "ASIAZV3A2ECZDER2GQFO",
+    "secret_access_key": "5F4kKkStd1Gdw4aCJ99AED03l7HJZWqLyR17W2u+",
+    "session_token": "IQoJb3JpZ2luX2VjEMz//////////wEaCXVzLWVhc3QtMSJGMEQCIHMVUH7IyjBUrIMQh4p7spYc6cmn7xWG0R3XxGKSjOgWAiAaIfz1h2nqr8tlu0bX8fPy+4JhxBB8IXReJ4FCTFdQsyrrAwiV//////////8BEAQaDDY2NTM4NjA5ODg2NiIM/M0bwUvGEIu37nMGKr8DHMnXKlm7QSCKOHDMfIGqhbHSbhI/uoltD/KPVIKDB4RNhRA+yLUJ3dyPYyWI7Q6pqJwjaUBgR4V+Es96CXUjXrtbtRUUMfPO8rgEAiLR/lUnh/XeSn5cTxGBn3J9FeV5Yf8TY3r8IW/4Rwuq2N7qrgRhiaje7eX2BWbjtOAJwCs7OamHP50mr6nPQZtrQok1EM3T97eTMl9wLDd99VbdRCG4Yxj69CKoDg9chNxpQp9V5ykZEEYtfKKRiAisOBJY+PNXZSvViDkQTl5N6Xy/vO4sMoeG9g9uTgLCZpffgcr0mNtimLp9DMIHoxVAxq4exx8z4ArPlZU3y+f2EHIaSZuwVIN1QGdrTBxnA0tXCgGnPTQb4tcb/POn+meqkrrXLaXpTqAhRzlbR08qEAPjCWpEV3Y5n15wiEZf3d54/hhoDjf0A3dSGKSAgB0l0t2XTjAOZ2M7qswlJM+qSXHThS8y59RzaKOQjw8+Fds2MtLCn0IVtlVwOfD8DWlTuKXY7ArM9JBRs4lPkLOS+wjRw5rGXofdSTLrN+thXq13labBVeNHEFuWGSdK0KE1DP/P5zwVz3Cb/ejUvPOJBhL5MKGXo9AGOp4BlG+wouzEVfvRgCbEYvU3Tl/ioM/BVpr8sUGKwdrDYjcULX0PiJbXBb54HULHtmd31dR0mbljOD3Bd1yKygIvE7du1VI80pbHHeL+lVJ704ZePNepAD1XfHC1hdggPaK4aG3fD1b16scJGTR9Yvy4JqIwJ1sn1p6kqatsx3bohjbJ86MGdM+0owXaHpR9HnhQYo9Wp/IMc+k/pLvEuoA=",
+    "expiration": "2026-05-17T07:55:13.000Z"
   },
   "name": "housing-dashboard",
   "path": "/home/ubuntu/housing-dashboard",
@@ -24,7 +31,7 @@
     "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
     "VITE_ANALYTICS_WEBSITE_ID": "f8429ca4-5fd0-424e-87d8-7b3a6eae5d75",
     "VITE_APP_ID": "ajya84z9dmED5NqWmxrMcj",
-    "VITE_APP_LOGO": "",
+    "VITE_APP_LOGO": "https://files.manuscdn.com/user_upload_by_module/web_dev_logo/96626251/iYXjGWkTeipninQt.png",
     "VITE_APP_TITLE": "California Housing Dashboard",
     "VITE_FRONTEND_FORGE_API_KEY": "BQx9aFzhGEs2kuPG7vtAM4",
     "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",

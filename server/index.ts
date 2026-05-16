@@ -2,6 +2,7 @@ import express from "express";
 import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
+import { predictPrice } from "./prediction.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -9,6 +10,22 @@ const __dirname = path.dirname(__filename);
 async function startServer() {
   const app = express();
   const server = createServer(app);
+
+  // Middleware
+  app.use(express.json());
+
+  // Prediction API endpoint
+  app.post("/api/predict", async (req, res) => {
+    try {
+      const result = await predictPrice(req.body);
+      res.json(result);
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        error: error instanceof Error ? error.message : "Prediction failed"
+      });
+    }
+  });
 
   // Serve static files from dist/public in production
   const staticPath =

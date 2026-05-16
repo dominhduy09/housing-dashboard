@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BarChart, Bar, LineChart, Line, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { TrendingUp, MapPin, Home as HomeIcon, BarChart3 } from 'lucide-react';
+import PricePredictor from '@/components/PricePredictor';
 
 /**
  * California Housing Dashboard - Data-Driven Minimalism Design
@@ -339,6 +340,23 @@ export default function Home() {
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* Interactive Price Predictor Section */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full mb-4">
+              <TrendingUp className="w-4 h-4 text-accent" />
+              <span className="text-sm font-medium text-accent">Interactive Tool</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Predict Housing Prices</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              Use our trained machine learning model to predict California housing prices. Adjust features like median income, location, and property characteristics to explore price patterns.
+            </p>
+          </div>
+          <PricePredictor />
         </div>
       </section>
 
