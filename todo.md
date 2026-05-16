@@ -20,3 +20,5 @@
 - [x] Add quick preset locations for California regions
 - [x] Test predictions accuracy (11/11 tests passing)
 - [x] Deploy and verify functionality
+- [x] Fix API routing - configure Vite proxy and backend server
+- [x] Verify end-to-end API communication
