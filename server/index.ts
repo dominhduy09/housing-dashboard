@@ -64,9 +64,9 @@ async function startServer() {
           const result = await predictPrice(record);
           predictions.push({
             ...record,
-            predicted_price: result.predicted_price,
-            price_in_dollars: result.price_in_dollars,
-            confidence: result.confidence,
+            predicted_price: result.predicted_price ?? 0,
+            price_in_dollars: result.price_in_dollars ?? 0,
+            confidence: result.confidence ?? 0,
             error: result.error
           });
         }

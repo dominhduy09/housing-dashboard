@@ -11,7 +11,7 @@ export interface PropertyRecord {
   ave_occup: number;
   latitude: number;
   longitude: number;
-  [key: string]: string | number;
+  [key: string]: string | number | undefined;
 }
 
 export interface PredictionRecord extends PropertyRecord {
@@ -66,7 +66,7 @@ export function parseCSV(csvContent: string): PropertyRecord[] {
       );
     }
 
-    const record: PropertyRecord = {};
+    const record: PropertyRecord = {} as PropertyRecord;
     for (let j = 0; j < headers.length; j++) {
       const header = headers[j]!;
       const value = values[j]!;
