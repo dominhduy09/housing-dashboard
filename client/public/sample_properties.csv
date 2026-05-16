@@ -1,0 +1,9 @@
+median_income,house_age,ave_rooms,ave_bedrms,population,ave_occup,latitude,longitude,property_name
+8.3,41,6.98,1.02,322,2.56,37.88,-122.23,San Francisco Bay Area
+6.8,35,5.5,1.1,1000,2.5,34.05,-118.24,Los Angeles
+6.5,30,5.2,1.0,800,2.4,32.71,-117.16,San Diego
+5.2,40,5.0,1.0,500,2.5,38.56,-121.49,Sacramento
+3.8,45,4.8,0.9,400,2.3,36.74,-119.77,Fresno
+4.2,38,5.1,1.0,600,2.4,37.27,-120.66,Central Valley
+7.5,25,6.0,1.2,1200,2.6,37.34,-121.89,San Jose
+5.8,32,5.3,1.05,900,2.45,38.29,-122.46,Napa Valley
