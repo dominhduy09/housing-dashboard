@@ -7,6 +7,7 @@ import { Slider } from '@/components/ui/slider';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { AlertCircle, Loader2, TrendingUp, MapPin } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import PropertyMap from './PropertyMap';
 
 interface PredictionInput {
   median_income: number;
@@ -111,13 +112,17 @@ export default function PricePredictor() {
   return (
     <div className="space-y-6">
       <Tabs defaultValue="predictor" className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
+        <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="predictor" className="flex items-center gap-2">
             <TrendingUp className="w-4 h-4" />
             <span className="hidden sm:inline">Price Predictor</span>
           </TabsTrigger>
-          <TabsTrigger value="history" className="flex items-center gap-2">
+          <TabsTrigger value="map" className="flex items-center gap-2">
             <MapPin className="w-4 h-4" />
+            <span className="hidden sm:inline">Map</span>
+          </TabsTrigger>
+          <TabsTrigger value="history" className="flex items-center gap-2">
+            <TrendingUp className="w-4 h-4" />
             <span className="hidden sm:inline">History</span>
           </TabsTrigger>
         </TabsList>
@@ -373,6 +378,43 @@ export default function PricePredictor() {
               </CardContent>
             </Card>
           )}
+        </TabsContent>
+
+        {/* Map Tab */}
+        <TabsContent value="map" className="space-y-4">
+          <PropertyMap
+            properties={[
+              ...predictionHistory.map(p => ({
+                latitude: p.input.latitude,
+                longitude: p.input.longitude,
+                predicted_price: p.result.predicted_price,
+                price_in_dollars: p.result.price_in_dollars,
+                confidence: p.result.confidence,
+                median_income: p.input.median_income,
+                house_age: p.input.house_age,
+                label: `$${(p.result.price_in_dollars || 0).toLocaleString('en-US', { maximumFractionDigits: 0 })}`
+              })),
+              ...(result && result.success ? [{
+                latitude: input.latitude,
+                longitude: input.longitude,
+                predicted_price: result.predicted_price,
+                price_in_dollars: result.price_in_dollars,
+                confidence: result.confidence,
+                median_income: input.median_income,
+                house_age: input.house_age,
+                label: `Current: $${(result.price_in_dollars || 0).toLocaleString('en-US', { maximumFractionDigits: 0 })}`
+              }] : [])
+            ]}
+            selectedProperty={result && result.success ? {
+              latitude: input.latitude,
+              longitude: input.longitude,
+              predicted_price: result.predicted_price,
+              price_in_dollars: result.price_in_dollars,
+              confidence: result.confidence,
+              median_income: input.median_income,
+              house_age: input.house_age
+            } : undefined}
+          />
         </TabsContent>
 
         {/* History Tab */}
