@@ -3,6 +3,12 @@ import { MapView } from './Map';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { MapPin, DollarSign, TrendingUp } from 'lucide-react';
 
+declare global {
+  interface Window {
+    google?: any;
+  }
+}
+
 interface PropertyLocation {
   latitude: number;
   longitude: number;
@@ -25,9 +31,9 @@ export default function PropertyMap({
   selectedProperty,
   onPropertySelect,
 }: PropertyMapProps) {
-  const mapRef = useRef<google.maps.Map | null>(null);
-  const markersRef = useRef<google.maps.marker.AdvancedMarkerElement[]>([]);
-  const infoWindowsRef = useRef<google.maps.InfoWindow[]>([]);
+  const mapRef = useRef<any>(null);
+  const markersRef = useRef<any[]>([]);
+  const infoWindowsRef = useRef<any[]>([]);
   const [mapReady, setMapReady] = useState(false);
 
   // California bounds for reference
@@ -39,7 +45,7 @@ export default function PropertyMap({
     west: -124.5,
   };
 
-  const handleMapReady = (map: google.maps.Map) => {
+  const handleMapReady = (map: any) => {
     mapRef.current = map;
     setMapReady(true);
   };
@@ -117,7 +123,7 @@ export default function PropertyMap({
       markerDiv.appendChild(pinDiv);
 
       // Create marker
-      const marker = new google.maps.marker.AdvancedMarkerElement({
+      const marker = new window.google!.maps.marker.AdvancedMarkerElement({
         position,
         map: mapRef.current,
         title: property.label || `Property ${index + 1}`,
@@ -156,7 +162,7 @@ export default function PropertyMap({
         </div>
       `;
 
-      const infoWindow = new google.maps.InfoWindow({
+      const infoWindow = new window.google!.maps.InfoWindow({
         content: infoContent,
       });
 
@@ -191,7 +197,7 @@ export default function PropertyMap({
 
     // Fit map to bounds of all markers
     if (properties.length > 0) {
-      const bounds = new google.maps.LatLngBounds();
+      const bounds = new window.google!.maps.LatLngBounds();
       properties.forEach((property) => {
         bounds.extend({ lat: property.latitude, lng: property.longitude });
       });

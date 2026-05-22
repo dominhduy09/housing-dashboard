@@ -58,31 +58,42 @@
  * const directionsRenderer = new google.maps.DirectionsRenderer({ map });
  * directionsService.route(
  *   { origin, destination, travelMode: "DRIVING" },
- *   (res, status) => status === "OK" && directionsRenderer.setDirections(res)
+ *   (result, status) => {
+ *     if (status === "OK") {
+ *       directionsRenderer.setDirections(result);
+ *     }
+ *   }
  * );
  *
- * -------------------------------
- * 🌦️ MAP LAYERS (attach directly to map)
- * - new google.maps.TrafficLayer().setMap(map);
- * - new google.maps.TransitLayer().setMap(map);
- * - new google.maps.BicyclingLayer().setMap(map);
+ * ======
+ * 🔑 API Key Setup
+ * ======
+ * The API key is automatically injected from environment variables.
+ * No manual setup required—just use the MapView component.
  *
- * -------------------------------
- * ✅ SUMMARY
- * - "map-attached" → AdvancedMarkerElement, DirectionsRenderer, Layers.
- * - "standalone" → Geocoder, DirectionsService, DistanceMatrixService, ElevationService.
- * - "data-only" → Place, Geometry utilities.
+ * ======
+ * 🎯 Key Points
+ * ======
+ * 1. Google Maps API is loaded once globally; subsequent uses reuse the loaded script.
+ * 2. All services (Geocoder, Directions, Places) are available via window.google.maps.
+ * 3. Markers and overlays attach directly to the map object.
+ * 4. The component is fully managed by Google Maps; React state is not used for map rendering.
+ * 5. Use refs to store map instance for external control.
+ *
  */
 
-/// <reference types="@types/google.maps" />
-
 import { useEffect, useRef } from "react";
-import { usePersistFn } from "@/hooks/usePersistFn";
 import { cn } from "@/lib/utils";
+
+function usePersistFn<T extends (...args: any[]) => any>(fn: T): T {
+  const ref = useRef(fn);
+  ref.current = fn;
+  return ((...args) => ref.current(...args)) as T;
+}
 
 declare global {
   interface Window {
-    google?: typeof google;
+    google?: any;
   }
 }
 
@@ -129,8 +140,9 @@ function loadMapScript() {
       resolve();
     };
     script.onerror = () => {
-      console.error("Failed to load Google Maps script");
+      console.error("Failed to load Google Maps script from:", script.src);
       mapScriptLoading = false;
+      mapScriptPromise = null;
     };
     document.head.appendChild(script);
   });
@@ -140,9 +152,9 @@ function loadMapScript() {
 
 interface MapViewProps {
   className?: string;
-  initialCenter?: google.maps.LatLngLiteral;
+  initialCenter?: any;
   initialZoom?: number;
-  onMapReady?: (map: google.maps.Map) => void;
+  onMapReady?: (map: any) => void;
 }
 
 export function MapView({
@@ -152,25 +164,37 @@ export function MapView({
   onMapReady,
 }: MapViewProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<google.maps.Map | null>(null);
+  const map = useRef<any>(null);
 
   const init = usePersistFn(async () => {
-    await loadMapScript();
-    if (!mapContainer.current) {
-      console.error("Map container not found");
-      return;
-    }
-    map.current = new window.google.maps.Map(mapContainer.current, {
-      zoom: initialZoom,
-      center: initialCenter,
-      mapTypeControl: true,
-      fullscreenControl: true,
-      zoomControl: true,
-      streetViewControl: true,
-      mapId: "DEMO_MAP_ID",
-    });
-    if (onMapReady) {
-      onMapReady(map.current);
+    try {
+      await loadMapScript();
+      
+      if (!mapContainer.current) {
+        console.error("Map container not found");
+        return;
+      }
+
+      if (!window.google || !window.google.maps) {
+        console.error("Google Maps API not available");
+        return;
+      }
+
+      map.current = new window.google.maps.Map(mapContainer.current, {
+        zoom: initialZoom,
+        center: initialCenter,
+        mapTypeControl: true,
+        fullscreenControl: true,
+        zoomControl: true,
+        streetViewControl: true,
+        mapId: "DEMO_MAP_ID",
+      });
+
+      if (onMapReady) {
+        onMapReady(map.current);
+      }
+    } catch (error) {
+      console.error("Error initializing map:", error);
     }
   });
 
