@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BarChart, Bar, LineChart, Line, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { TrendingUp, MapPin, Home as HomeIcon, BarChart3 } from 'lucide-react';
+import { TrendingUp, MapPin, Home as HomeIcon, BarChart3, Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import PricePredictor from '@/components/PricePredictor';
 
 /**
@@ -387,6 +387,40 @@ export default function Home() {
                 <li>• RMSE: 0.5072</li>
                 <li>• MAE: 0.3350</li>
               </ul>
+            </div>
+          </div>
+          {/* About the Author Section */}
+          <div className="py-8 border-t border-border">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-xl font-bold text-foreground mb-3">About the Author</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  This housing price prediction dashboard was created by a data scientist passionate about leveraging machine learning to uncover insights in real estate markets. With expertise in statistical modeling, data analysis, and interactive visualization, the author combines technical rigor with practical applications to make complex data accessible and actionable.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  The Random Forest model powering this tool was trained on comprehensive California housing data, achieving 80% accuracy in predicting median home values. This project demonstrates the intersection of data science, web development, and domain expertise.
+                </p>
+              </div>
+              <div className="flex flex-col items-center md:items-end">
+                <div className="w-24 h-24 bg-gradient-to-br from-accent to-secondary rounded-full mb-4 flex items-center justify-center">
+                  <HomeIcon className="w-12 h-12 text-white" />
+                </div>
+                <h4 className="font-semibold text-foreground mb-4">Connect</h4>
+                <div className="flex gap-4">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-border hover:bg-accent transition-colors duration-200" title="GitHub">
+                    <Github className="w-5 h-5 text-foreground" />
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-border hover:bg-accent transition-colors duration-200" title="LinkedIn">
+                    <Linkedin className="w-5 h-5 text-foreground" />
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-border hover:bg-accent transition-colors duration-200" title="Twitter">
+                    <Twitter className="w-5 h-5 text-foreground" />
+                  </a>
+                  <a href="mailto:contact@example.com" className="p-2 rounded-full bg-border hover:bg-accent transition-colors duration-200" title="Email">
+                    <Mail className="w-5 h-5 text-foreground" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
           <div className="pt-8 border-t border-border">
