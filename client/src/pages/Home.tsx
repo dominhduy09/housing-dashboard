@@ -395,10 +395,10 @@ export default function Home() {
               <div>
                 <h3 className="text-xl font-bold text-foreground mb-3">About the Author</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  This housing price prediction dashboard was created by a data scientist passionate about leveraging machine learning to uncover insights in real estate markets. With expertise in statistical modeling, data analysis, and interactive visualization, the author combines technical rigor with practical applications to make complex data accessible and actionable.
+                  <span className="font-semibold text-foreground">Minh Duy Do</span> is a Computer Science student passionate about building modern, high-performance web applications. With a strong interest in AI, system design, and scalable software engineering, he focuses on creating impactful and efficient solutions.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  The Random Forest model powering this tool was trained on comprehensive California housing data, achieving 80% accuracy in predicting median home values. This project demonstrates the intersection of data science, web development, and domain expertise.
+                  He has experience in full-stack development, machine learning, and cloud technologies, and actively builds projects, contributes to open-source, and explores new technologies to continuously grow as a developer. The Random Forest model powering this dashboard demonstrates his expertise in applying machine learning to real-world problems.
                 </p>
               </div>
               <div className="flex flex-col items-center md:items-end">
@@ -407,16 +407,13 @@ export default function Home() {
                 </div>
                 <h4 className="font-semibold text-foreground mb-4">Connect</h4>
                 <div className="flex gap-4">
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-border hover:bg-accent transition-colors duration-200" title="GitHub">
+                  <a href="https://github.com/dominhduy09" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-border hover:bg-accent transition-colors duration-200" title="GitHub">
                     <Github className="w-5 h-5 text-foreground" />
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-border hover:bg-accent transition-colors duration-200" title="LinkedIn">
+                  <a href="https://linkedin.com/in/duy-do-minh-0b37501a9" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-border hover:bg-accent transition-colors duration-200" title="LinkedIn">
                     <Linkedin className="w-5 h-5 text-foreground" />
                   </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-border hover:bg-accent transition-colors duration-200" title="Twitter">
-                    <Twitter className="w-5 h-5 text-foreground" />
-                  </a>
-                  <a href="mailto:contact@example.com" className="p-2 rounded-full bg-border hover:bg-accent transition-colors duration-200" title="Email">
+                  <a href="mailto:dominhduy09@gmail.com" className="p-2 rounded-full bg-border hover:bg-accent transition-colors duration-200" title="Email">
                     <Mail className="w-5 h-5 text-foreground" />
                   </a>
                 </div>

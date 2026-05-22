@@ -38,9 +38,10 @@
 
 ## About the Author Footer (Completed)
 - [x] Create About the Author section with bio
-- [x] Add social media links (GitHub, LinkedIn, Twitter, Email)
+- [x] Add social media links (GitHub, LinkedIn, Email)
 - [x] Design profile avatar with gradient background
 - [x] Implement responsive layout for desktop and mobile
 - [x] Add hover effects on social links
 - [x] Integrate into footer with existing content
+- [x] Update with Minh Duy Do's actual information and links
 - [x] Test and verify rendering
