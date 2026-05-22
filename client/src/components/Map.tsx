@@ -143,6 +143,7 @@ function loadMapScript() {
       console.error("Failed to load Google Maps script from:", script.src);
       mapScriptLoading = false;
       mapScriptPromise = null;
+      resolve();
     };
     document.head.appendChild(script);
   });
@@ -176,7 +177,10 @@ export function MapView({
       }
 
       if (!window.google || !window.google.maps) {
-        console.error("Google Maps API not available");
+        console.warn("Google Maps API not available - map will not be displayed");
+        if (mapContainer.current) {
+          mapContainer.current.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #f5f5f5; color: #666; font-size: 14px;">Map unavailable - please check your internet connection</div>';
+        }
         return;
       }
 
