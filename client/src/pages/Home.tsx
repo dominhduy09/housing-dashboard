@@ -3,6 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BarChart, Bar, LineChart, Line, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { TrendingUp, MapPin, Home as HomeIcon, BarChart3, Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import PricePredictor from '@/components/PricePredictor';
+import ModelExplainability from '@/components/ModelExplainability';
 
 /**
  * California Housing Dashboard - Data-Driven Minimalism Design
@@ -359,6 +360,9 @@ export default function Home() {
           <PricePredictor />
         </div>
       </section>
+
+      {/* Model Explainability Section */}
+      <ModelExplainability />
 
       {/* Footer */}
       <footer className="py-8 border-t border-border">
