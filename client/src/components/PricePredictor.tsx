@@ -44,6 +44,7 @@ export default function PricePredictor() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [predictionHistory, setPredictionHistory] = useState<Array<{ input: PredictionInput; result: PredictionResult; timestamp: Date }>>([]);
+  const [activeTab, setActiveTab] = useState('predictor');
 
   const handleInputChange = (field: keyof PredictionInput, value: number) => {
     setInput(prev => ({
@@ -78,6 +79,8 @@ export default function PricePredictor() {
           { input: { ...input }, result: data, timestamp: new Date() },
           ...prev.slice(0, 9) // Keep last 10 predictions
         ]);
+        // Auto-switch to map tab to show the prediction marker
+        setActiveTab('map');
       } else {
         setError(data.error || 'Prediction failed');
       }
@@ -111,7 +114,7 @@ export default function PricePredictor() {
 
   return (
     <div className="space-y-6">
-      <Tabs defaultValue="predictor" className="w-full">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="predictor" className="flex items-center gap-2">
             <TrendingUp className="w-4 h-4" />

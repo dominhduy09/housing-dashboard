@@ -58,3 +58,10 @@
 - [x] Create three tabs: Methodology, Features, Performance
 - [x] Test explainability section rendering
 - [x] Deploy and verify functionality
+
+## Map Marker Sync Feature (Completed)
+- [x] Update PricePredictor to emit prediction event with location
+- [x] Modify PropertyMap to accept and display new predictions
+- [x] Auto-switch to Map tab when prediction is made
+- [x] Map automatically displays marker at predicted location
+- [x] Test map marker sync end-to-end
