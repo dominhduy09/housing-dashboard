@@ -171,8 +171,11 @@ export function MapView({
     try {
       await loadMapScript();
       
+      // Wait for DOM to be ready
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
       if (!mapContainer.current) {
-        console.error("Map container not found");
+        console.error("Map container not found - ref is null");
         return;
       }
 
@@ -182,6 +185,12 @@ export function MapView({
           mapContainer.current.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #f5f5f5; color: #666; font-size: 14px;">Map unavailable - please check your internet connection</div>';
         }
         return;
+      }
+
+      // Ensure container has dimensions
+      if (mapContainer.current.offsetHeight === 0) {
+        console.warn("Map container has no height - waiting for layout");
+        await new Promise(resolve => setTimeout(resolve, 200));
       }
 
       map.current = new window.google.maps.Map(mapContainer.current, {
