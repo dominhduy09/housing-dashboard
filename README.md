@@ -1,5 +1,11 @@
-# Web App Template (Static Frontend)
+<img width="1728" height="1226" alt="screenshot-engine-studio" src="https://github.com/user-attachments/assets/e179d343-048c-49e2-a23a-2c42aac65e7f" />
+<img width="1024" height="1024" alt="93775" src="https://github.com/user-attachments/assets/bf852fe3-b0c1-423d-81ed-1ba47caecbc7" />
 
+```
+https://youtu.be/Sh4Z1Iin6VY
+```
+
+# Web App Template (Static Frontend)
 Pure React 19 + Tailwind 4 template with shadcn/ui baked in. **Use this README as the checklist for shipping static experiences.**
 
 > **Note:** This template includes a minimal `shared/` and `server/` directory with placeholder types to support imported templates. These are just compatibility placeholders - web-static remains a true static-only template without API functionality.
